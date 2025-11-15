@@ -1,12 +1,9 @@
 package br.mack.estagio.repositories;
 
-import br.mack.estagio.entities.Estudante;
-import br.mack.estagio.entities.Inscricao;
-import br.mack.estagio.entities.VagaEstagio;
+import br.mack.estagio.entities.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface InscricaoRepository extends JpaRepository<Inscricao, Long> {
     List<Inscricao> findByEstudanteId(Long estudanteId);

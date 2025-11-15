@@ -1,10 +1,7 @@
 package br.mack.estagio.repositories;
 
-import br.mack.estagio.entities.AreaInteresse;
-import br.mack.estagio.entities.Empresa;
-import br.mack.estagio.entities.VagaEstagio;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import br.mack.estagio.entities.*;
+import org.springframework.data.jpa.repository.*;
 
 import java.util.List;
 

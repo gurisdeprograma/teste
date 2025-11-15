@@ -2,9 +2,7 @@
 // Inclui listagem pública, criação por empresas, encerramento de vagas.
 package br.mack.estagio.controllers;
 
-import br.mack.estagio.entities.AreaInteresse;
-import br.mack.estagio.entities.Empresa;
-import br.mack.estagio.entities.VagaEstagio;
+import br.mack.estagio.entities.*;
 import br.mack.estagio.repositories.VagaEstagioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

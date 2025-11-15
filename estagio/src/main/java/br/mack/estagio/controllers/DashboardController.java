@@ -2,19 +2,13 @@
 // Fornece estatísticas para admin, vagas para estudantes e inscrições para empresas.
 package br.mack.estagio.controllers;
 
-import br.mack.estagio.entities.Inscricao;
-import br.mack.estagio.entities.VagaEstagio;
-import br.mack.estagio.repositories.EmpresaRepository;
-import br.mack.estagio.repositories.EstudanteRepository;
-import br.mack.estagio.repositories.InscricaoRepository;
-import br.mack.estagio.repositories.VagaEstagioRepository;
+import br.mack.estagio.entities.*;
+import br.mack.estagio.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/dashboard")

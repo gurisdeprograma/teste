@@ -3,8 +3,7 @@ package br.mack.estagio.repositories;
 import br.mack.estagio.entities.Estudante;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface EstudanteRepository extends JpaRepository<Estudante, Long> {
     Optional<Estudante> findByCpf(String cpf);

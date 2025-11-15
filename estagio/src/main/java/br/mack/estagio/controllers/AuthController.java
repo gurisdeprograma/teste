@@ -2,14 +2,9 @@
 // Suporta login para estudantes, empresas e administradores com verificação de senha criptografada.
 package br.mack.estagio.controllers;
 
-import br.mack.estagio.dto.LoginRequest;
-import br.mack.estagio.dto.LoginResponse;
-import br.mack.estagio.entities.Administrador;
-import br.mack.estagio.entities.Empresa;
-import br.mack.estagio.entities.Estudante;
-import br.mack.estagio.repositories.AdministradorRepository;
-import br.mack.estagio.repositories.EmpresaRepository;
-import br.mack.estagio.repositories.EstudanteRepository;
+import br.mack.estagio.dto.*;
+import br.mack.estagio.entities.*;
+import br.mack.estagio.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,7 +45,12 @@ public class AuthController {
                 if (!passwordEncoder.matches(senha, estudante.getSenha())) {
                     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas");
                 }
-                return new LoginResponse(UUID.randomUUID().toString(), role, estudante.getId(), estudante.getNome());
+                LoginResponse response = new LoginResponse();
+                response.setToken(UUID.randomUUID().toString());
+                response.setRole(role);
+                response.setId(estudante.getId());
+                response.setNome(estudante.getNome());
+                return response;
 
             case "empresa":
                 Empresa empresa = empresaRepository.findByEmail(email)
@@ -58,7 +58,12 @@ public class AuthController {
                 if (!passwordEncoder.matches(senha, empresa.getSenha())) {
                     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas");
                 }
-                return new LoginResponse(UUID.randomUUID().toString(), role, empresa.getId(), empresa.getNome());
+                LoginResponse response2 = new LoginResponse();
+                response2.setToken(UUID.randomUUID().toString());
+                response2.setRole(role);
+                response2.setId(empresa.getId());
+                response2.setNome(empresa.getNome());
+                return response2;
 
             case "admin":
                 Administrador admin = administradorRepository.findByEmail(email)
@@ -66,7 +71,12 @@ public class AuthController {
                 if (!passwordEncoder.matches(senha, admin.getSenha())) {
                     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Credenciais inválidas");
                 }
-                return new LoginResponse(UUID.randomUUID().toString(), role, admin.getId(), admin.getNome());
+                LoginResponse response3 = new LoginResponse();
+                response3.setToken(UUID.randomUUID().toString());
+                response3.setRole(role);
+                response3.setId(admin.getId());
+                response3.setNome(admin.getNome());
+                return response3;
 
             default:
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Tipo de usuário inválido");
